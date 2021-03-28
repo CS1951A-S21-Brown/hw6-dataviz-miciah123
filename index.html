@@ -7,6 +7,30 @@
         <link rel="stylesheet" href="main.css"/>
         <!--Feel free to add more CSS files as needed-->
         <script type="text/javascript" src="https://d3js.org/d3.v5.min.js"></script>
+        <style>
+        h4 {
+            text-align: center;
+        }
+        </style>
+        <style type="text/css">
+            /* Custom style rules go here. We've included a few, but feel free to write your own! */
+            button:focus {
+                outline: 0 !important;
+            }
+            svg {
+                display: block;
+                margin: 0 auto;
+                font: 10px sans-serif;
+            }
+            .tooltip {
+                position: absolute;
+                font-size: 12px;
+                min-width: 100px;
+                padding: 10px;
+                width:  auto;
+                height: auto;
+            }
+        </style>
     </head>
 <body>
     <div class="header">
@@ -15,14 +39,77 @@
     <!--  We included a basic HTML structure for the 3 graphs here. Feel free to change this if you'd like  -->
     <div class="row">
         <div class="col-lg-6">
+            <h3>Part 1</h3>
+            <h4>Top 10 Games by Global Sales</h4>
             <div id="graph1"></div>
+            <h3>Part 2</h3>
+            <h4>Most Popular Games Per Region by Regional Sales</h4>
+
+            <button type="button" class="btn btn-info" onclick="setData('NA_Sales')">North America</button>
+            <button type="button" class="btn btn-info" onclick="setData('JP_Sales')">Japan</button>
+            <button type="button" class="btn btn-info" onclick="setData('EU_Sales')">European Union</button>
             <div id="graph2"></div><br/>
-        </div>
-        <div class="col-lg-6">
+
+            <h3>Part 3</h3>
+            <h4>Top Publishers For Each Genre By Global Sales</h4>
             <div id="graph3"></div>
         </div>
     </div>
     <!--Feel free to add more JavaScript files as needed-->
-    <script type="text/javascript" src="main.js"></script>
+    <script type="text/javascript" src="pie.js"></script>
+    <script type="text/javascript" src="main.js"></script> 
+    <script type="text/javascript" src="static.js"></script>
+    <h3>Written Questions</h3>
+    <ol>
+        1. The first visualization shows my boss the top 10 video games of all time by displaying a bar chart of 
+        the top 10 games by global sales. For the second question, the boss can see which genres have the largest 
+        share of the pie. Moreover, if they want to see the genre popularities in a different region they can 
+        toggle the buttons to display each region's data. Although pie charts should be used for "parts of a whole"
+        data, this pie chart is helpful because the boss can instantly see which genre has the largest 'slice' of the pie.
+        The last chart is very straightforward and on the y-axis directly shows the top publisher for each genre
+        on the y-axis labels and also shows the corresponding sales for that publisher within each genre. 
+    </ol>
+    <ol>
+        2. One way d3 was helpful was by allowing me to update my own data with a javascript function. In other words,
+        I could toggle between the regional data by defining a JS function that would feed in a new column of data. Another
+        way d3 was helpful was the tooltip feature which allowed me to easily display some of my data in a separate 
+        box for ease of readability. A third way d3 was helpful was by allowing me to have a color preset for the pie chart.
+        Instead of having to define my own range based on the data they provided presets that allowed for a unique scale of colors. 
+    </ol>
+    <ol>
+        3. One reason d3 may not be the best is if you want to perform statistical analysis and then easily include it in the 
+        visualizations. Maybe I'm wrong because I don't know JS, but it seems that python has more functionalities to perform statistical
+        tests. So within a python framework like matplotlib you could easily add in the data from any statistial modules you use. D3 
+        is reliant on JS which to my understanding provides less frameworks for mathematical analysis. 
+        Another reason d3 may not be the best is that the desired visualization may be generated in a simpler way. 
+        In doing some research on d3, I found that SVG's don't natively support text-wrapping like CSS.
+        A third reason d3 may not be the best is if we want to quickly throw together a simple visualization. While
+        d3 isn't terribly complicated, you have to build each part of the visualization up from scratch (e.g. Adding bars
+        to the chart separately). It may be easier to use a framework that auto-generates lines, bars or 'pieces of a pie'
+        when making a data visualization. 
+    </ol>
+
+    <ol>
+        4. I would overall characterize my dashboard as fairly accessible. Some obvious pitfalls occur for people
+        who may have certain visual impairements. As the Medium articles notes, colorblind people
+        sometimes have a harder time making distinctions on certain visualizations. My pie-chart is not the most colorblind
+        friendly as many similar colors are clustered close together and there's not much sharp contrast between the colors. Moreover,
+        a blind person could not get any value from my dashboard as I do not include any audio component to convey
+        my data. To fix these issues, I could rely on more sharp contrasted colors in the pie-chart and included alt-text
+        that could be read by audio-assisting software that some
+        blind people use. 
+        Some strengths of my dashboard is that each chart has clear titles and labels without overally distracting
+        text or colors. 
+        
+    </ol>
+    <ol>
+        5. One big way I could have implemented my design to be more accessible to the visually impaired in particular 
+        would have been to make a fully different chart for the thrid question. My third chart showcases the top publisher
+        (the main info my boss needs) for each genre within the text of a paranthesis. Some form of heatmap may have been more
+        visually clear especially for somebody who can't see text too well or may have some form of dyslexia. I was mainly
+        held back from this implementation by time constraints. The heatmap framework was something I was unfamiliar with 
+        so I stuck to the bar chart and displayed the main info with text. 
+
+    </ol>
 </body>
 </html>
