@@ -19,7 +19,7 @@ let svg3 = d3.select("#graph3")
 
 let countRef3 = svg3.append("g");
 
-d3.csv("../data/video_games.csv").then(function(data) {
+d3.csv("./data/video_games.csv").then(function(data) {
     
     let genreNest = d3.nest()
         .key(function(d) {return d.Genre})

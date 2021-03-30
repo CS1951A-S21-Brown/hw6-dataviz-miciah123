@@ -13,7 +13,7 @@ let svg2 = d3.select("#graph2")
 
 function setData(region) {
         
-    d3.csv("../data/video_games.csv").then(function(data) {
+    d3.csv("./data/video_games.csv").then(function(data) {
         svg2.selectAll('path').remove();
         svg2.selectAll('g').remove();        
 

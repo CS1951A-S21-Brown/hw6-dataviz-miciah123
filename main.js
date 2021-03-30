@@ -22,7 +22,7 @@ let svg = d3.select("#graph1")
 // Set up reference to count SVG group
 let countRef = svg.append("g");
 
-d3.csv("../data/video_games.csv").then(function(data) {
+d3.csv("./data/video_games.csv").then(function(data) {
     //clean and loaf
     data = cleanData(data, function(a,b) {return parseFloat(b.global_sales) - parseFloat(a.global_sales)} , 20);
 
